@@ -54,7 +54,7 @@ public class BotControlScript : MonoBehaviour
 	
 		// STANDARD JUMPING
 		
-		// if we are currently in a state called Locomotion (see line 25), then allow Jump input (Space) to set the Jump bool parameter in the Animator to true
+	
 		if (currentBaseState.nameHash == locoState)
 		{
 			if(Input.GetButtonDown("Jump"))
@@ -63,7 +63,7 @@ public class BotControlScript : MonoBehaviour
 			}
 		}
 		
-		// if we are in the jumping state... 
+		
 		else if(currentBaseState.nameHash == jumpState)
 		{
 			//  ..and not still in transition..
