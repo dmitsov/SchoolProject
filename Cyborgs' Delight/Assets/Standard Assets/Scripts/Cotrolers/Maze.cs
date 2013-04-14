@@ -210,17 +210,6 @@ namespace Maps
 			}
 		}
 		
-		public void showWalls(){
-			IEnumerator cellEnum = cells.GetEnumerator();
-			
-			for(int i = 0; i < 200; i++){
-				cellEnum.MoveNext();
-				if(((Cell)cellEnum.Current).hasWall(Directions.UP)) Console.Write("UP");
-				if(((Cell)cellEnum.Current).hasWall(Directions.DOWN)) Console.Write("DOWN");
-				if(((Cell)cellEnum.Current).hasWall(Directions.LEFT)) Console.Write("LEFT");
-				if(((Cell)cellEnum.Current).hasWall(Directions.RIGHT)) Console.Write ("RIGHT \n");
-			}
-		}
 		
         public void Reset() {
 			
