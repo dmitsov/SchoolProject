@@ -3,14 +3,13 @@ using System.Collections;
 
 public class RunningAnimation : MonoBehaviour {
 
-	void StartRunnig(){
-		FirstPersonMoveAround.startRunning += startRunning;
+	void StartRunnig(bool hasStartedWalking){
+
 	}
 	
-	void StopRunning(){
-		FirstPersonMoveAround.stopRunning += stopRunning;
-	}
+	void StopRunning(bool hasStopedWalking){
 	
+	}
 
 }
 

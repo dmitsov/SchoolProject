@@ -24,11 +24,9 @@ public class FirstPersonMoveAround : MonoBehaviour {
 		
 		if(Input.GetKey (KeyCode.W) == true || Input.GetKey (KeyCode.UpArrow) == true 
 			|| Input.GetKey (KeyCode.S) == true || Input.GetKey (KeyCode.DownArrow) == true){
-			
 			float MoveForward = Input.GetAxis ("Vertical") * MoveSpeed * Time.deltaTime;
 			transform.Translate(Vector3.forward * MoveForward);
 			isRunning = true;
-		
 		}
 		
 		
@@ -40,14 +38,5 @@ public class FirstPersonMoveAround : MonoBehaviour {
 			
 		}
 		
-		if(isRunning && runSend == 0){
-			StartRunningHandler(true);
-			runSend++;
-		}
-		
-		if(!isRunning && runSend == 1){
-			StopRunningHandler(true);
-			runSend = 0;
-		}
 	}
 }
