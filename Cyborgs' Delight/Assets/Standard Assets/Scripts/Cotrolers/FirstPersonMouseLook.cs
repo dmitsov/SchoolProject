@@ -33,8 +33,6 @@ public class FirstPersonMouseLook : MonoBehaviour {
 			RotationX = ClampAngle (RotationX, MinimumX, MaximumX);
 			Quaternion XQuaternion = Quaternion.AngleAxis(RotationX, Vector3.up);	
 			transform.localRotation = OriginalRotation * XQuaternion;
-			isRunning = true;
-			if(!hasStartedRunning) hasStartedRunning = true;
 			
 		}
 		
@@ -46,8 +44,6 @@ public class FirstPersonMouseLook : MonoBehaviour {
 			transform.localRotation = OriginalRotation * YQuaternion;
 		}
 		
-		if(!isRunning)
-			isRunningEvent = false;
 	}
 	
 	
