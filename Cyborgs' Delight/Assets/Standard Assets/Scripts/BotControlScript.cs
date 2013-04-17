@@ -87,7 +87,7 @@ public class BotControlScript : MonoBehaviour
 				if (hitInfo.distance > 1.75f)
 				{
 					
-					// MatchTarget allows us to take over animation and smoothly transition our character towards a location - the hit point from the ray.
+					// MatchTarget takes over the animation and smoothly transition our character towards a location - the hit point from the ray.
 					// Here we're telling the Root of the character to only be influenced on the Y axis (MatchTargetWeightMask) and only occur between 0.35 and 0.5
 					// of the timeline of our animation clip
 					anim.MatchTarget(hitInfo.point, Quaternion.identity, AvatarTarget.Root, new MatchTargetWeightMask(new Vector3(0, 1, 0), 0), 0.35f, 0.5f);
@@ -98,14 +98,14 @@ public class BotControlScript : MonoBehaviour
 		
 		// JUMP DOWN AND ROLL 
 		
-		// if we are jumping down, set our Collider's Y position to the float curve from the animation clip - 
+		// The model is jumping down, set our Collider's Y position to the float curve from the animation clip - 
 		// this is a slight lowering so that the collider hits the floor as the character extends his legs
 		else if (currentBaseState.nameHash == jumpDownState)
 		{
 			col.center = new Vector3(0, anim.GetFloat("ColliderY"), 0);
 		}
 		
-		// if we are falling, set our Grounded boolean to true when our character's root 
+		// if the model is falling, the Grounded boolean is set to true when our character's root 
 		// position is less that 0.6, this allows us to transition from fall into roll and run
 		// we then set the Collider's Height equal to the float curve from the animation clip
 		else if (currentBaseState.nameHash == fallState)
@@ -113,10 +113,8 @@ public class BotControlScript : MonoBehaviour
 			col.height = anim.GetFloat("ColliderHeight");
 		}
 		
-		// if we are in the roll state and not in transition, set Collider Height to the float curve from the animation clip 
-		// this ensures we are in a short spherical capsule height during the roll, so we can smash through the lower
-		// boxes, and then extends the collider as we come out of the roll
-		// we also moderate the Y position of the collider using another of these curves on line 128
+		// if we are in the roll state and not in transition, Collider Height is set to the float curve from the animation clip 
+		// this ensures that the model is in a short spherical capsule height during the roll.
 		else if (currentBaseState.nameHash == rollState)
 		{
 			if(!anim.IsInTransition(0))
@@ -127,21 +125,6 @@ public class BotControlScript : MonoBehaviour
 				col.center = new Vector3(0, anim.GetFloat("ColliderY"), 0);
 				
 			}
-		}
-		// IDLE
-		
-		// check if we are at idle, if so, let us Wave!
-		else if (currentBaseState.nameHash == idleState)
-		{
-			if(Input.GetButtonUp("Jump"))
-			{
-				anim.SetBool("Wave", true);
-			}
-		}
-		// if we enter the waving state, reset the bool to let us wave again in future
-		if(layer2CurrentState.nameHash == waveState)
-		{
-			anim.SetBool("Wave", false);
 		}
 	}
 }

@@ -9,17 +9,17 @@ public class ThirdPersonCamera : MonoBehaviour
 	void Start()
 	{
 		// initialising references
-		standardPos = GameObject.Find ("CamPos").transform;
+		standardPos = GameObject.Find ("Dude").transform;
 		
 	}
 	
 	void FixedUpdate ()
 	{
+		Vector3 pos = standardPos.position - standardPos.forward*2.5f;
 		
-		// return the camera to standard position and direction
-		standardPos = GameObject.Find("CamPos").transform;
-		transform.position = standardPos.position;	
-		transform.forward = standardPos.forward;
+		pos.y += standardPos.localScale.y;
+		transform.position = pos;		
+		transform.rotation = standardPos.rotation;
 		
 	}
 }
