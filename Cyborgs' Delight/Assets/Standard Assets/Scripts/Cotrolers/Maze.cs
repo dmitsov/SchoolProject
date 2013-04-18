@@ -173,8 +173,18 @@ namespace Maps
 				}
 			}
 		}
-		
-		
+
+        public void Reset() {
+            for (int i = 0; i < 5; i++) {
+                for (int k = 0; k < 10; k++) {
+                    cells[i * 10 + k].setWall(Directions.UP|Directions.DOWN|Directions.LEFT|Directions.RIGHT);   
+                }
+            }
+        }
+
+
+
+
 	}
 }
 
