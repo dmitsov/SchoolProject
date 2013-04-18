@@ -25,7 +25,7 @@ namespace Maps
 		}
 		
 		public void RearangeMap(){
-
+			maze.ResetMaze();
 		}
 		
 
