@@ -16,16 +16,16 @@ namespace Maps
 		
 		public MapMaze()
 		{
-			corners = new GameObject[50];
+			floor = GameObject.CreatePrimitive(PrimitiveType.Cube);
 			maze = new Maze();
 		}
 		
 		public void CreateMap(){
-			floor = GameObject.CreatePrimitive(PrimitiveType.Cube);
+			maze.Generate();
 		}
 		
 		public void RearangeMap(){
-			
+
 		}
 		
 
