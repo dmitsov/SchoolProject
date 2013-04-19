@@ -10,18 +10,19 @@ namespace Maps
 	public class MapMaze:  MonoBehaviour, IMap
 	{
 		private Maze maze;
-		private GameObject floor;
-		private GameObject[] corners;
-		
-		
-		public MapMaze()
-		{
-			floor = GameObject.CreatePrimitive(PrimitiveType.Cube);
+		private Vector3[] corners;
+
+
+        public void Start() { 
+  	
 			maze = new Maze();
+			corners = new Vector3[66];
 		}
 		
 		public void CreateMap(){
 			maze.Generate();
+            for (int row = 0; row < 6; row++) { }			
+			
 		}
 		
 		public void RearangeMap(){
