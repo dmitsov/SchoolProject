@@ -14,13 +14,18 @@ namespace Maps
 	}
 	
 	public class Cell{
-		private int walls = 0;			
+		private int walls;			
 		public int coll;
 		private int row;
-		private bool hasVisited = false;
+		private bool hasVisited;
 		
 		
-		public Cell(){}
+		public Cell(){
+			walls = 0;
+			coll = 0;
+			row = 0;
+			hasVisited = false;
+		}
 		
 		public bool IsVisited{
 			get{return hasVisited;}
@@ -38,10 +43,7 @@ namespace Maps
 		}
 		
 		
-		public bool isVisited(){
-			return hasVisited;
-		}
-		
+
 		public void setWall(Directions d){
 			if(d == Directions.NONE) return;
 			if(!((walls & (int)d) > 0)) walls = walls | (byte)d;
@@ -59,23 +61,31 @@ namespace Maps
 			}
 		}
 		
+		public bool hasWall(Directions d){
+			return (walls & (int)d) > 0;
+		}
+		
 	}
 	
 	public class Maze
 	{	
-		private Cell[] cells;
+		private ArrayList cells;
 		
 		
 		public Maze ()
 		{
-			cells = new Cell[50]; 
+			cells = new ArrayList(); 
 	
+			
 			for(int i = 0; i < 5; i++){
 				for(int k = 0; k < 10; k++){
-					cells[i*10 + k].Coll = k;
-					cells[i*10 + k].Row = i;
-					cells[i*10 + k].setWall (Directions.UP|Directions.DOWN|
+					Cell cell = new Cell();
+					cell.IsVisited = false;
+					cell.Coll = k;
+					cell.Row = i;
+					cell.setWall (Directions.UP|Directions.DOWN|
 												Directions.LEFT|Directions.RIGHT);
+					cells.Add(cell);
 				}
 			}
 			
@@ -92,12 +102,10 @@ namespace Maps
 		}
 		
 		public Cell drill(Cell cell, Directions d){
-			if(d == Directions.NONE) return cell;
-			if(!hasNeighbour(cell,d)) return cell;
-			
 			
 			int row = cell.Row;
 			int coll = cell.Coll;
+			
 			switch(d){
 				case Directions.UP: row -=1;
 									break;
@@ -109,24 +117,31 @@ namespace Maps
 									   break;
 			}
 			
+			Cell currentCell = getCell(coll,row);
+			
 			switch(d){
-				case Directions.UP: cells[row*10 + coll].unsetWall (Directions.DOWN);
+				
+				case Directions.UP: currentCell.unsetWall (Directions.DOWN);
 									break;
-				case Directions.DOWN: cells[row*10 + coll].unsetWall(Directions.UP);
+				case Directions.DOWN: currentCell.unsetWall(Directions.UP);
 									  break;
-				case Directions.LEFT: cells[row*10 +coll].unsetWall(Directions.RIGHT);
+				case Directions.LEFT: currentCell.unsetWall(Directions.RIGHT);
 									  break;
-				case Directions.RIGHT: cells[row*10 + coll].unsetWall(Directions.LEFT);
+				case Directions.RIGHT: currentCell.unsetWall(Directions.LEFT);
 									   break;
 			}
 			
 			cell.unsetWall(d);
 	
-			return cells[row*10 + coll];
+			return currentCell;
 		}
 		
 		public Cell getCell(int coll, int row){
-			return cells[row*10 + coll];
+			IEnumerator cellEnum = cells.GetEnumerator();
+			cellEnum.MoveNext();
+			for(int i = 0; i < (row*10 + coll); i++) cellEnum.MoveNext();
+			Cell cell = (Cell)cellEnum.Current;
+			return cell;
 		}
 		
 		public Directions GetRandomUnvisitedNeighbour(Cell cell){
@@ -134,52 +149,86 @@ namespace Maps
 			Random rand = new Random();
 			int row = cell.Row;
 			int coll = cell.Coll;
-			int visited = 0;
+			Cell neighbour;
 			Directions d = Directions.NONE;
-			
-			
-			
+			bool up = false,
+				 down = false,
+				 left = false,
+			     right = false;
+	
+
 			while(true){
 				dir = rand.Next(4) + 1;
-				switch(dir){
-					case 1: if(!cells[(row-1)*10 + coll].IsVisited) d = Directions.UP;
-							else visited+=1;
-							break;
-					case 2: if(!cells[row*10 + coll - 1].IsVisited) d = Directions.LEFT;
-							else visited+=1;
-							break;
-					case 3: if(!cells[(row+1)*10 + coll].IsVisited) d = Directions.DOWN;
-							else visited+=1;
-							break;
-					case 4: if(!cells[row*10 + coll + 1].IsVisited) d = Directions.RIGHT;   
-							else visited+=1;
+				switch(dir){			
+					case 1:	if(hasNeighbour(cell,Directions.UP)){ 
+								neighbour = getCell (coll,row - 1);	
+								if(!neighbour.IsVisited) d = Directions.UP;
+							}
+							up = true;
 							break;
 					
+					case 2: if(hasNeighbour(cell,Directions.LEFT)){
+								neighbour = getCell(coll - 1, row);
+								if(!neighbour.IsVisited) d = Directions.LEFT;
+							}
+							left = true;
+							break;
+					
+					case 3: if(hasNeighbour(cell,Directions.DOWN)){
+								neighbour = getCell (coll,row + 1);
+								if(!neighbour.IsVisited) d = Directions.DOWN;
+							}
+							down = true;
+							break;
+					
+					case 4: if(hasNeighbour(cell,Directions.RIGHT)){
+								neighbour = getCell(coll + 1,row);	
+								if(!neighbour.IsVisited) d = Directions.RIGHT;   
+							}
+							right = true;
+							break;
+					
+					default: d = Directions.NONE;
+							 break;
 				}
-				if((d != Directions.NONE) || (visited == 4)) break;
+				if((d != Directions.NONE) || (right == true && down == true && up == true && left == true)) break;
 			}
 			
 			return d;
 		}
 		
-		public void Generate(Cell start){
+		public void Generate(int row = 1, int coll = 0){
 			while(true){
-				Directions dir = GetRandomUnvisitedNeighbour(start);
+				Cell cell = getCell(coll,row);
+				Directions dir = GetRandomUnvisitedNeighbour(cell);
 				if(dir == Directions.NONE) return;
-				else{
-						Cell next = drill (start,dir);
-						next.IsVisited = true;
-						Generate(next);
-				}
+				cell.IsVisited = true;
+				Cell next = drill (cell,dir);
+				next.IsVisited = true;
+				Generate(next.Row,next.Coll);
+				
 			}
 		}
-
+		
+		public void showWalls(){
+			IEnumerator cellEnum = cells.GetEnumerator();
+			
+			for(int i = 0; i < 200; i++){
+				cellEnum.MoveNext();
+				if(((Cell)cellEnum.Current).hasWall(Directions.UP)) Console.Write("UP");
+				if(((Cell)cellEnum.Current).hasWall(Directions.DOWN)) Console.Write("DOWN");
+				if(((Cell)cellEnum.Current).hasWall(Directions.LEFT)) Console.Write("LEFT");
+				if(((Cell)cellEnum.Current).hasWall(Directions.RIGHT)) Console.Write ("RIGHT \n");
+			}
+		}
+		
         public void Reset() {
-            for (int i = 0; i < 5; i++) {
-                for (int k = 0; k < 10; k++) {
-                    cells[i * 10 + k].setWall(Directions.UP|Directions.DOWN|Directions.LEFT|Directions.RIGHT);   
-                }
-            }
+			
+           for(int row = 0; row < 5; row++)
+				for(int coll = 0; coll < 10; coll++){
+					Cell cell = getCell(coll,row);
+					cell.setWall(Directions.DOWN|Directions.LEFT|Directions.RIGHT|Directions.UP);
+				}
         }
 
 
