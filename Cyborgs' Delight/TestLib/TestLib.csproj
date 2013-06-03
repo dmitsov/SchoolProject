@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6435FDCF-C400-4946-94F2-E00F8B245C41}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>TestLib</RootNamespace>
+    <AssemblyName>TestLib</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\..\..\..\..\..\Program Files %28x86%29\NUnit 2.6.2\bin\framework\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityScript, Version=1.0.0.0, Culture=neutral, PublicKeyToken=32c39770e9a21a67">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityScript.Lang, Version=1.0.0.0, Culture=neutral, PublicKeyToken=32c39770e9a21a67">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\..\..\..\..\..\Program Files %28x86%29\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>..\..\..\..\..\..\..\Program Files %28x86%29\Unity\Editor\Data\Managed\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.mocks">
+      <HintPath>..\..\..\..\..\..\..\Program Files %28x86%29\NUnit 2.6.2\bin\framework\nunit.mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="pnunit.framework">
+      <HintPath>..\..\..\..\..\..\..\Program Files %28x86%29\NUnit 2.6.2\bin\framework\pnunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\..\..\..\..\Program Files %28x86%29\NUnit 2.6.2\bin\lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NSubstitute">
+      <HintPath>..\..\..\..\..\..\..\Program Files %28x86%29\NUnit 2.6.2\bin\lib\NSubstitute.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.core">
+      <HintPath>..\..\..\..\..\..\..\Program Files %28x86%29\NUnit 2.6.2\bin\lib\nunit.core.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.core.interfaces">
+      <HintPath>..\..\..\..\..\..\..\Program Files %28x86%29\NUnit 2.6.2\bin\lib\nunit.core.interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.uiexception">
+      <HintPath>..\..\..\..\..\..\..\Program Files %28x86%29\NUnit 2.6.2\bin\lib\nunit.uiexception.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.uikit">
+      <HintPath>..\..\..\..\..\..\..\Program Files %28x86%29\NUnit 2.6.2\bin\lib\nunit.uikit.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.util">
+      <HintPath>..\..\..\..\..\..\..\Program Files %28x86%29\NUnit 2.6.2\bin\lib\nunit.util.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit-console-runner">
+      <HintPath>..\..\..\..\..\..\..\Program Files %28x86%29\NUnit 2.6.2\bin\lib\nunit-console-runner.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit-gui-runner">
+      <HintPath>..\..\..\..\..\..\..\Program Files %28x86%29\NUnit 2.6.2\bin\lib\nunit-gui-runner.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Cyborgs%27 Delight\TestLib\AssemblyInfo.cs" />
+    <Compile Include="..\..\Cyborgs%27 Delight\TestLib\InstatiateScipt.cs" />
+    <Compile Include="..\..\Cyborgs%27 Delight\TestLib\TestMaze.cs" />
+    <Compile Include="..\..\Cyborgs%27 Delight\TestLib\Assert.cs" />
+    <Compile Include="..\..\Cyborgs%27 Delight\TestLib\TestCase.cs" />
+    <Compile Include="..\..\Cyborgs%27 Delight\TestLib\TestException.cs" />
+    <Compile Include="..\..\Cyborgs%27 Delight\TestLib\TestReporter.cs" />
+    <Compile Include="..\..\Cyborgs%27 Delight\TestLib\TestResult.cs" />
+    <Compile Include="..\..\Cyborgs%27 Delight\TestLib\TestSuite.cs" />
+    <Compile Include="..\..\Cyborgs%27 Delight\TestLib\UnitTest.cs" />
+    <Compile Include="..\..\Cyborgs%27 Delight\TestLib\Unity3D_TestReporter.cs" />
+    <Compile Include="..\..\Cyborgs%27 Delight\TestLib\Unity3D_TestRunner.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Cyborgs%27 Delight\Assembly-CSharp-firstpass.csproj">
+      <Project>{2EB96834-F7EC-00F1-05F1-D6917DE8B508}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

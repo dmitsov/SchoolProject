@@ -3,12 +3,10 @@ using System.Collections;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
-	public float smooth = 3f;		// a public variable to adjust smoothing of camera motion
-	Transform standardPos;			// the usual position for the camera, specified by a transform in the game 
+	public float smooth = 3f;		
+	Transform standardPos;			
 	
-	void Start()
-	{
-		// initialising references
+	void Start(){
 		standardPos = GameObject.Find ("Dude").transform;
 		
 	}

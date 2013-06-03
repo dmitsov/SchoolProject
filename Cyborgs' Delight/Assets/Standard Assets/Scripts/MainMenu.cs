@@ -6,8 +6,7 @@ using Maps;
 
 public class MainMenu : MonoBehaviour {
 	
-	
-	private MapCatalouge catalouge;
+
 	private bool isLoadMenu = false;
 	
 	
@@ -26,7 +25,6 @@ public class MainMenu : MonoBehaviour {
 		buttonLeftIndent = (screenWidth - buttonWidth) * 0.5f;
 		
 		
-		catalouge = new MapCatalouge();
 	}
 	
 	void OnGUI(){

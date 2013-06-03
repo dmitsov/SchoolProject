@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VisualState xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ShowCheckBoxes="false">
+  <TopNode>[0-1012]C:\Users\Donny Mitsov\Documents\GitHub\SchoolProject\Cyborgs' Delight\TestLib\bin\Debug\TestLib.dll</TopNode>
+  <SelectedNode>[0-1012]C:\Users\Donny Mitsov\Documents\GitHub\SchoolProject\Cyborgs' Delight\TestLib\bin\Debug\TestLib.dll</SelectedNode>
+  <ExcludeCategories>false</ExcludeCategories>
+  <Nodes>
+    <Node UniqueName="[0-1012]C:\Users\Donny Mitsov\Documents\GitHub\SchoolProject\Cyborgs' Delight\TestLib\bin\Debug\TestLib.dll" Expanded="true" />
+    <Node UniqueName="[0-1013]TestLib" Expanded="true" />
+    <Node UniqueName="[0-1000]TestLib.TestMaze" Expanded="true" />
+  </Nodes>
+</VisualState>

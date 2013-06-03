@@ -44,18 +44,17 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Standard Assets\Character Controllers\Cotrolers\Cloaking.cs" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Cotrolers\FirstPersonMouseLook.cs" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Cotrolers\FirstPersonMoveAround.cs" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Cotrolers\MapCatalouge.cs" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Cotrolers\MapController.cs" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Cotrolers\MapMaze.cs" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Cotrolers\Maze.cs" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Cotrolers\MouseMove.cs" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Cotrolers\RunningAnimation.cs" />
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\BotControlScript.cs" />
-     <Compile Include="Assets\Standard Assets\Scripts\CamPos.cs" />
-     <Compile Include="Assets\Standard Assets\Scripts\Cotrolers\Cloaking.cs" />
-     <Compile Include="Assets\Standard Assets\Scripts\Cotrolers\FirstPersonMouseLook.cs" />
-     <Compile Include="Assets\Standard Assets\Scripts\Cotrolers\FirstPersonMoveAround.cs" />
-     <Compile Include="Assets\Standard Assets\Scripts\Cotrolers\MapCatalouge.cs" />
-     <Compile Include="Assets\Standard Assets\Scripts\Cotrolers\MapController.cs" />
-     <Compile Include="Assets\Standard Assets\Scripts\Cotrolers\MapMaze.cs" />
-     <Compile Include="Assets\Standard Assets\Scripts\Cotrolers\Maze.cs" />
-     <Compile Include="Assets\Standard Assets\Scripts\Cotrolers\MouseMove.cs" />
-     <Compile Include="Assets\Standard Assets\Scripts\Cotrolers\RunningAnimation.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Exit.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Standard Assets\Scripts\Multiplayer.cs" />
@@ -66,7 +65,7 @@
      <None Include="Assets\Standard Assets\EyecyShadersLite\Shader\Normal-BumpSpec.shader" />
      <None Include="Assets\Standard Assets\MapList.txt" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
-     <None Include="Assets\Standard Assets\Shaders\Cloak.shader" />
+     <None Include="Assets\Standard Assets\Shaders\TestShaders.shader" />
      <None Include="Assets\Standard Assets\EyecyShadersLite\Shader\Reflect-Glossy.shader" />
      <None Include="Assets\Standard Assets\Fonts\License.txt" />
      <None Include="Assets\Standard Assets\EyecyShadersLite\Shader\Normal-SpecMap.shader" />

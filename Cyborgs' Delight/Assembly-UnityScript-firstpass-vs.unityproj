@@ -55,7 +55,7 @@
      <None Include="Assets\Standard Assets\EyecyShadersLite\Shader\Normal-BumpSpec.shader" />
      <None Include="Assets\Standard Assets\MapList.txt" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
-     <None Include="Assets\Standard Assets\Shaders\Cloak.shader" />
+     <None Include="Assets\Standard Assets\Shaders\TestShaders.shader" />
      <None Include="Assets\Standard Assets\EyecyShadersLite\Shader\Reflect-Glossy.shader" />
      <None Include="Assets\Standard Assets\Fonts\License.txt" />
      <None Include="Assets\Standard Assets\EyecyShadersLite\Shader\Normal-SpecMap.shader" />

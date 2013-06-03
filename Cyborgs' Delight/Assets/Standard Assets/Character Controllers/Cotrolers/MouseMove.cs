@@ -18,13 +18,10 @@ public class MouseMove: MonoBehaviour {
 	
 	public Quaternion OriginalRotation;
 		
-
-	// Use this for initialization
 	void Start () {
 		OriginalRotation = transform.localRotation;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		
 		if(RotXY == RotateAxis.MouseX){

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\Donny Mitsov\Documents\GitHub\SchoolProject\Cyborgs' Delight\TestLib\bin\Debug\TestLib.dll" total="11" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-06-02" time="16:55:58">
+  <environment nunit-version="2.6.2.12296" clr-version="2.0.50727.6400" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.2\bin" machine-name="DONNY" user="Donny Mitsov" user-domain="Donny" />
+  <culture-info current-culture="en-GB" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="C:\Users\Donny Mitsov\Documents\GitHub\SchoolProject\Cyborgs' Delight\TestLib\bin\Debug\TestLib.dll" executed="True" result="Success" success="True" time="0.119" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="TestLib" executed="True" result="Success" success="True" time="0.101" asserts="0">
+        <results>
+          <test-suite type="TestFixture" name="TestMaze" executed="True" result="Success" success="True" time="0.099" asserts="0">
+            <results>
+              <test-case name="TestLib.TestMaze.TestCell" executed="True" result="Success" success="True" time="0.051" asserts="1" />
+              <test-case name="TestLib.TestMaze.TestCellSetWall" executed="True" result="Success" success="True" time="0.004" asserts="1" />
+              <test-case name="TestLib.TestMaze.TestCellUnsetWall" executed="True" result="Success" success="True" time="0.001" asserts="1" />
+              <test-case name="TestLib.TestMaze.TestHasWall" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="TestLib.TestMaze.TestMazeConstructor" executed="True" result="Success" success="True" time="0.000" asserts="1" />
+              <test-case name="TestLib.TestMaze.TestMazeDrill" executed="True" result="Success" success="True" time="0.002" asserts="2" />
+              <test-case name="TestLib.TestMaze.TestMazeGenerate" executed="True" result="Success" success="True" time="0.006" asserts="2" />
+              <test-case name="TestLib.TestMaze.TestMazeGetCell" executed="True" result="Success" success="True" time="0.001" asserts="4" />
+              <test-case name="TestLib.TestMaze.TestMazeGetRandomUnvisitedNeighbour" executed="True" result="Success" success="True" time="0.000" asserts="2" />
+              <test-case name="TestLib.TestMaze.TestMazeHasNeighbour" executed="True" result="Success" success="True" time="0.000" asserts="4" />
+              <test-case name="TestLib.TestMaze.TestMazeReset" executed="True" result="Success" success="True" time="0.002" asserts="4" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
